@@ -1,0 +1,50 @@
+# --- PYTHON ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.python-version
+
+# --- DISTRIBUTION / PACKAGING ---
+.eggs/
+*.egg-info/
+build/
+dist/
+
+# --- VIRTUAL ENV ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- SECURITY & CONFIG ---
+.env
+local_settings.py
+
+# --- DJANGO ---
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+*.log
+
+# --- TESTING & LINTING ---
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+nosetests.xml
+coverage.xml
+pytest.xml
+
+# --- IDE & OS ---
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+.cursorignore
+.cursorindexingignore
