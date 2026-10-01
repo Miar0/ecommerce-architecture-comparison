@@ -1,0 +1,45 @@
+[project]
+name = "django-monolith"
+version = "0.1.0"
+description = "Monolith service for e-commerce performance comparison"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "django>=5.0",
+    "djangorestframework>=3.15",
+    "psycopg[binary]>=3.1.0",
+    "django-environ>=0.11.2",
+    "gunicorn>=23.0",
+]
+
+[dependency-groups]
+dev = [
+    "factory-boy>=3.3.3",
+    "pytest>=8.3",
+    "pytest-django>=4.9.0",
+    "pytest-cov>=5.0",
+]
+
+[tool.uv]
+package = false
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+testpaths = ["apps"]
+addopts = "--strict-markers --showlocals --cov=apps --cov=config --cov-report=term-missing"
+
+[tool.coverage.run]
+omit = [
+    "*manage.py",
+    "*wsgi.py",
+    "*asgi.py",
+    "*/migrations/*",
+    "*/admin.py",
+    "*/apps.py",
+    "*/__init__.py",
+    "config/urls.py",
+    "config/settings.py",
+]
