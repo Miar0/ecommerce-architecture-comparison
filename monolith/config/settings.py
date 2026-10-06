@@ -33,7 +33,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
 ]
 
-LOCAL_APPS = []
+LOCAL_APPS = ["users"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -75,6 +75,8 @@ DATABASES = {
 
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE")
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
+AUTH_USER_MODEL = "users.User"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
