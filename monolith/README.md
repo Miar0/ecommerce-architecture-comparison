@@ -94,10 +94,38 @@ uv run python manage.py runserver
 
 ---
 
-## Running Tests
+## Development Guidelines
 
+### Creating New Apps
+All domain applications must be placed inside the `apps/` directory:
+```bash
+uv run python manage.py startapp <app_name> apps/<app_name>
+```
+*Note: Ensure the `name` attribute in `apps/<app_name>/apps.py` matches the module path (e.g., `name = "users"`).*
+
+---
+
+## Testing Conventions
+
+We follow a strict **layered testing methodology** using `pytest`:
+
+- **Layer Separation:** Keep test modules split by architectural layers (`test_models.py`, `test_serializers.py`, `test_views.py`) inside each app's `tests/` directory.
+- **Class-Based Grouping:** Group test cases logically inside test classes (e.g., `class TestUserModel:`).
+- **Factories (`factory-boy`):** Use `UserFactory.build()` for lightweight in-memory validation checks, and `UserFactory()` for database-dependent persistence tests.
+- **Fixtures:** Define reusable test data payloads and setups using `pytest` fixtures within test modules or `conftest.py`.
+
+### Running Tests
 Execute the full test suite with code coverage:
-
 ```bash
 uv run pytest
+```
+
+Run tests for a specific domain app:
+```bash
+uv run pytest apps/users/
+```
+
+Run a specific test class:
+```bash
+uv run pytest apps/users/tests/test_models.py::TestUserModel
 ```
