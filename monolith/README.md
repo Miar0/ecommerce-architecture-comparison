@@ -92,6 +92,13 @@ uv run python manage.py check
 uv run python manage.py runserver
 ```
 
+### 8. API Documentation
+Once the development server is running, you can explore and test the available API endpoints using the auto-generated OpenAPI documentation:
+
+- **Swagger UI:** [http://127.0.0.1:8000/api/docs/swagger/](http://127.0.0.1:8000/api/docs/swagger/) (Recommended for interactive testing)
+- **Redoc:** [http://127.0.0.1:8000/api/docs/redoc/](http://127.0.0.1:8000/api/docs/redoc/) (Detailed, read-only reference)
+- **OpenAPI Schema:** [http://127.0.0.1:8000/api/schema/](http://127.0.0.1:8000/api/schema/) (Raw JSON/YAML schema)
+
 ---
 
 ## Development Guidelines
